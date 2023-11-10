@@ -40,6 +40,18 @@ export default styles=StyleSheet.create({
 
     TrustedPick: { fontSize: 18, fontWeight: '700', color: 'black', marginLeft: width/29.42, marginTop:width/22, marginBottom:width/22 },
 
+    TopPortion2:{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+    Zaitoon:{ color: '#282829', fontWeight: '800', fontSize: 17, },
+    index:{ color: '#f56011', fontSize: 12,fontWeight:'500' },
+    CaroDotView:{ flexDirection: 'row', justifyContent: 'center', alignItems: 'baseline' ,marginTop:10},
+    DotSide:{ backgroundColor: 'lightgrey', width: 6, height: 6, borderRadius: 20, marginRight: 2 },
+    DotCenter:{ backgroundColor: 'grey', width: 8, height: 8, borderRadius: 20, marginLeft: 2, marginRight: 2},
+    MenuView:{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:10},
+    MenuLeftImg:{width:30,height:30,resizeMode:'contain',marginRight:10},
+    MenuRightImg:{width:30,height:30,resizeMode:'contain',marginLeft:10},
+    MenuText:{color:'black',fontSize:11},
+    ResDish:{ marginLeft: 10, marginRight: 10,marginTop:15 },
+
 
 
 })

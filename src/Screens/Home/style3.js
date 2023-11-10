@@ -115,6 +115,21 @@ const styles = StyleSheet.create({
     ExpMins:{ color: '#282829', fontSize: 14, fontWeight: '600', marginLeft: 4 },
     ExpType:{color:'#8a8a8a',fontSize:14,fontWeight:'400'},
 
+    CarouselIndexView:{ flexDirection: 'row' ,justifyContent:'center',alignItems:'baseline'},
+    LeftDot:{backgroundColor:'lightgrey',width:8,height:8,borderRadius:20,marginRight:10},
+    CarouselText:{ color: 'white', backgroundColor: 'black', paddingLeft: 7, paddingRight: 7, padding: 1, fontSize: 9, borderRadius: 10, marginTop: 20 },
+    CarouselText2:{backgroundColor:'lightgrey',width:8,height:8,borderRadius:20,marginLeft:10},
+
+    TryNewView:{ margin: 20, backgroundColor: '#3c0b63', borderRadius: 25, paddingLeft: 15, paddingTop: 8, paddingBottom: 8, paddingRight: 15 },
+    TryNewText1:{ fontWeight: '400', fontSize: 15, color: '#e0e0e0', margin: 4 },
+    TryNewText2:{ fontWeight: '900', fontSize: 20, color: 'white', margin: 4 },
+    TryNewText3:{ fontWeight: '600', fontSize: 15, color: 'orange', margin: 4 },
+    TryNewImg:{ width: 75, height: 75, alignSelf: 'center' },
+
+    SeeMoreRestuarantsView:{ flexDirection: 'row', paddingTop: 12, paddingBottom: 12, borderTopColor: '#c7c7c7', borderBottomColor: '#c7c7c7', borderBottomWidth: 0.5, borderTopWidth: 0.5, marginTop: 20, marginBottom: 20, justifyContent: 'center', alignItems: 'center' },
+    SeeMoreRestuarantsText:{ fontWeight: '700', fontSize: 12, color: '#f56011' },
+    SeeMoreRestuarantsText2:{ fontWeight: '400', fontSize: 18, color: '#f56011' },
+    
 
 
 

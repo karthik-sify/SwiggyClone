@@ -1,4 +1,5 @@
-import { View, Image, Text, StatusBar, FlatList, ScrollView } from "react-native";
+import { useState } from "react";
+import { View, Image, Text, StatusBar, FlatList, ScrollView, Pressable } from "react-native";
 
 const back = require('../../Assests/back.png')
 const search = require('../../Assests/search.png')
@@ -10,30 +11,36 @@ import styles from "./style";
 import AddressItem from "../../Components/AddressItem";
 import { AddressData } from "../../Services/DB";
 
-export default Location = () => {
+
+
+export default Location = ({navigation}) => {
+
     return (
         <ScrollView style={{ backgroundColor: 'white' }}>
             <StatusBar barStyle={'dark-content'} backgroundColor={'white'}></StatusBar>
             <TopBar></TopBar>
             <Search></Search>
-            <CurrentLocation></CurrentLocation>
+            <CurrentLocation navigation={navigation}></CurrentLocation>
             <View style={styles.line}></View>
-            <Text style={{ color: 'grey', fontSize: 11, marginLeft: 15, marginBottom: 15 }}>S A V E D   A D D R E S S E S</Text>
+            <Text style={styles.SavedAdd}>S A V E D   A D D R E S S E S</Text>
             <Addresses></Addresses>
-            <Text style={{ fontWeight: '500', fontSize: 14, color: '#f56011', marginLeft: 15, marginTop: 10 }}>View More </Text>
+            <Text style={styles.ViewMore}>View More </Text>
             <View style={styles.line}></View>
-            <Text style={{ color: 'grey', fontSize: 11, marginLeft: 15, marginBottom: 15 }}>R E C E N T   S E A R C H E S</Text>
+            <Text style={styles.RecentSearch}>R E C E N T   S E A R C H E S</Text>
             <RecentSearch></RecentSearch>
 
         </ScrollView>
     );
 };
 
+
+
+
 const TopBar = () => {
     return (
-        <View style={{ flexDirection: 'row', marginTop: 15 }}>
-            <Image source={back} style={{ width: 50, height: 20, resizeMode: 'contain' }}></Image>
-            <Text style={{ color: 'black', fontWeight: '700', fontSize: 14 }}>Enter your area or apartment name</Text>
+        <View style={styles.TopBarView}>
+            <Image source={back} style={styles.TopBarImg}></Image>
+            <Text style={styles.TopBarTxt}>Enter your area or apartment name</Text>
         </View>
     );
 };
@@ -47,12 +54,14 @@ const Search = () => {
     );
 };
 
-const CurrentLocation = () => {
+const CurrentLocation = ({navigation}) => {
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 15 }}>
-            <Image source={homePic} style={{ width: 18, height: 18, marginRight: 10 }}></Image>
-            <Text style={{ fontWeight: '700', fontSize: 14, color: '#f56011' }}>Use my current location</Text>
-        </View>
+        <Pressable onPress={()=>navigation.navigate("MapComponent")}>
+            <View style={styles.CurrentLocationView}>
+                <Image source={homePic} style={styles.CurrentLocationImg}></Image>
+                <Text style={styles.CurrentLocationText}>Use my current location</Text>
+            </View>
+        </Pressable>
     )
 }
 
@@ -70,12 +79,12 @@ const Addresses = () => {
 
 const RecentSearch = () => {
     return (
-        <View style={{margin:15}}>
-            <View style={{ flexDirection: 'row', alignItems: "center" }}>
-                <Image style={{ width: 15, height: 15, resizeMode: 'contain', marginRight: 5 }} source={locationpin}></Image>
-                <Text style={{ color: '#4a4a4a', fontWeight: '700' }}>Tidel Park</Text>
+        <View style={{ margin: 15 }}>
+            <View style={styles.RecentSearchView}>
+                <Image style={styles.RecentSearchImg} source={locationpin}></Image>
+                <Text style={styles.RecentSearchText}>Tidel Park</Text>
             </View>
-            <Text style={{ color: 'grey', fontSize: 13, }}>No 4 Rajiv Gandhi Salai, Taramani, Chennai</Text>
+            <Text style={styles.RecentSearchText2}>No 4 Rajiv Gandhi Salai, Taramani, Chennai</Text>
         </View>
     )
 }

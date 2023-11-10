@@ -120,10 +120,10 @@ const CarouselImage = ({ setCurrentIndex, index }) => {
                 autoplay
                 loop
             />
-            <View style={{ flexDirection: 'row' ,justifyContent:'center',alignItems:'baseline'}}>
-                <View style={{backgroundColor:'lightgrey',width:8,height:8,borderRadius:20,marginRight:10}}></View>
-                <Text style={{ color: 'white', backgroundColor: 'black', paddingLeft: 7, paddingRight: 7, padding: 1, fontSize: 9, borderRadius: 10, marginTop: 20 }}> {index+1}/{CarouselObject.length}</Text>
-                <View style={{backgroundColor:'lightgrey',width:8,height:8,borderRadius:20,marginLeft:10}}></View>
+            <View style={styles.CarouselIndexView}>
+                <View style={styles.LeftDot}></View>
+                <Text style={styles.CarouselText}> {index+1}/{CarouselObject.length}</Text>
+                <View style={styles.CarouselText2}></View>
             </View>
         </View>
     );
@@ -182,14 +182,14 @@ const Dish = ({ navigation }) => {
 
 const TryNew = () => {
     return (
-        <View style={{ margin: 20, backgroundColor: '#3c0b63', borderRadius: 25, paddingLeft: 15, paddingTop: 8, paddingBottom: 8, paddingRight: 15 }}>
+        <View style={styles.TryNewView}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View>
-                    <Text style={{ fontWeight: '400', fontSize: 15, color: '#e0e0e0', margin: 4 }}>Craving for something</Text>
-                    <Text style={{ fontWeight: '900', fontSize: 20, color: 'white', margin: 4 }}>New?</Text>
-                    <Text style={{ fontWeight: '600', fontSize: 15, color: 'orange', margin: 4 }}>Try WhatToEat</Text>
+                    <Text style={styles.TryNewText1}>Craving for something</Text>
+                    <Text style={styles.TryNewText2}>New?</Text>
+                    <Text style={styles.TryNewText3}>Try WhatToEat</Text>
                 </View>
-                <Image style={{ width: 75, height: 75, alignSelf: 'center' }} source={drooling}></Image>
+                <Image style={styles.TryNewImg} source={drooling}></Image>
             </View>
 
         </View>
@@ -207,9 +207,9 @@ const QuickPickHead = () => {
 
 const SeeMoreRestuarants = () => {
     return (
-        <View style={{ flexDirection: 'row', paddingTop: 12, paddingBottom: 12, borderTopColor: '#c7c7c7', borderBottomColor: '#c7c7c7', borderBottomWidth: 0.5, borderTopWidth: 0.5, marginTop: 20, marginBottom: 20, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ fontWeight: '700', fontSize: 12, color: '#f56011' }}>See More Restuarants</Text>
-            <Text style={{ fontWeight: '400', fontSize: 18, color: '#f56011' }}>{'  >'}</Text>
+        <View style={styles.SeeMoreRestuarantsView}>
+            <Text style={styles.SeeMoreRestuarantsText}>See More Restuarants</Text>
+            <Text style={styles.SeeMoreRestuarantsText2}>{'  >'}</Text>
         </View>
     )
 }

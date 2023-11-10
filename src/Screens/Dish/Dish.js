@@ -6,7 +6,7 @@ import styles from "./style"
 import { Explore } from "../Home/Home";
 import { Filters } from "../Home/Home";
 
-export default Dish = () => {
+export default Dish = ({navigation}) => {
 
     return (
         <ScrollView style={{ backgroundColor: 'white'}}>
@@ -19,7 +19,7 @@ export default Dish = () => {
             <Text style={styles.Subtext}>Cheesilious pizzas to make every day extraordinary.</Text>
             <Text style={styles.Subtext2}>.......................................................................</Text>
             <Filters></Filters>
-            <Explore></Explore>
+            <Explore navigation={navigation}></Explore>
         </ScrollView>
     )
 }

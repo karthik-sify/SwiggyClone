@@ -6,13 +6,14 @@ import  {Home}  from './src/Screens/Home/Home';
 import Dish from './src/Screens/Dish/Dish';
 import Restaurant from './src/Screens/Restaurant/Restaurant';
 import location from './src/Screens/Location/location';
+import MapComponent from './src/Screens/map/map';
 
 const stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Location"
+      <stack.Navigator initialRouteName="Home"
         screenOptions={{ headerShown: false }}>
         <stack.Screen
           name="Home"
@@ -33,6 +34,11 @@ const App = () => {
           name="Location"
           component={location}
           options={{ title: "Location" }}
+        />
+        <stack.Screen
+          name="MapComponent"
+          component={MapComponent}
+          options={{ title: "MapComponent" }}
         />
       </stack.Navigator>
     </NavigationContainer>

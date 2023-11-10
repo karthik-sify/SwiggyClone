@@ -45,8 +45,8 @@ const TopPortion = () => {
 
             <View style={styles.infos}>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Text style={{ color: '#282829', fontWeight: '800', fontSize: 17, }}>Zaitoon</Text>
+                <View style={styles.TopPortion2}>
+                    <Text style={styles.Zaitoon}>Zaitoon</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Image style={styles.share} source={share}></Image>
                         <Image style={styles.heartGrey} source={heartGrey}></Image>
@@ -125,11 +125,11 @@ const ResCarousel = ({ styles, currentIndex, setCurrentIndex }) => {
                 loop
             />
             <View>
-                <Text style={{ color: '#f56011', fontSize: 12,fontWeight:'500' }}> {currentIndex + 1}/{ResCarouselData.length}</Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'baseline' ,marginTop:10}}>
-                    <View style={{ backgroundColor: 'lightgrey', width: 6, height: 6, borderRadius: 20, marginRight: 2 }}></View>
-                    <View style={{ backgroundColor: 'grey', width: 8, height: 8, borderRadius: 20, marginLeft: 2, marginRight: 2}}></View>
-                    <View style={{ backgroundColor: 'lightgrey', width: 6, height: 6, borderRadius: 20, marginLeft: 2 }}></View>
+                <Text style={styles.index}> {currentIndex + 1}/{ResCarouselData.length}</Text>
+                <View style={styles.CaroDotView}>
+                    <View style={styles.DotSide}></View>
+                    <View style={styles.DotCenter}></View>
+                    <View style={styles.DotSide}></View>
                 </View>
             </View>
         </View>
@@ -141,10 +141,10 @@ const Menu=()=>{
     const menuright=require('../../Assests/menuright.png');
 
     return(
-        <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center',marginTop:10}}>
-            <Image source={menuleft} style={{width:30,height:30,resizeMode:'contain',marginRight:10}} ></Image>
-            <Text style={{color:'black',fontSize:11}}>M E N U</Text>
-            <Image source={menuright} style={{width:30,height:30,resizeMode:'contain',marginLeft:10}} ></Image>
+        <View style={styles.MenuView}>
+            <Image source={menuleft} style={styles.MenuLeftImg} ></Image>
+            <Text style={styles.MenuText}>M E N U</Text>
+            <Image source={menuright} style={styles.MenuRightImg} ></Image>
         </View>
     );
 };
@@ -178,7 +178,7 @@ const ResDish = () => {
             <FlatList
                 data={RestaurantDishData}
                 keyExtractor={(item, index) => index.toString()}
-                style={{ marginLeft: 10, marginRight: 10,marginTop:15 }}
+                style={styles.ResDish}
                 renderItem={({ item }) => (
                     <RestaurantDishItem styles={styles} nonveg={item.NonVeg} bestseller={item.Bestseller} head={item.Head} rate={item.Rate} star={item.Star} rating={item.Rating} count={item.Count} body={item.Body} food={item.Food} >  </RestaurantDishItem>
                 )}
