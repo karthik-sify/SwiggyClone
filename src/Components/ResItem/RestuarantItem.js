@@ -1,7 +1,9 @@
 import { Image, ImageBackground, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-export default RestuarantItem = ({ Hotel, Rating, Mins, Type, Off, Upto, FoodImage, styles, Heart, Onelite, GreenStar, navigation }) => {
+import styles from "./style";
+
+export default RestuarantItem = ({ Hotel, Rating, Mins, Type, Off, Upto, FoodImage, Heart, Onelite, GreenStar, navigation }) => {
     return (
         <View>
             <ImageBackground
@@ -28,8 +30,8 @@ export default RestuarantItem = ({ Hotel, Rating, Mins, Type, Off, Upto, FoodIma
                 </LinearGradient>
             </ImageBackground >
 
-            <View style={{ marginLeft: 12, marginTop: 5, marginBottom: 10 }}>
-                <Text style={{ color: '#282829', fontWeight: '700', fontSize: 13, width: 120 }}>
+            <View style={styles.View2}>
+                <Text style={styles.View2Text}>
                     {Hotel}
                 </Text>
 

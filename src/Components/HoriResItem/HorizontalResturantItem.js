@@ -1,7 +1,8 @@
 import { Image, ImageBackground, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-export default HorizontalRestuarantItem=({ Hotel, Rating, Mins, Type, Off, Upto, FoodImage, styles, Heart,Location, GreenStar,FreeDelivery })=>{
+import styles from "./style";
+export default HorizontalRestuarantItem=({ Hotel, Rating, Mins, Type, Off, Upto, FoodImage, Heart,Location, GreenStar,FreeDelivery })=>{
     return(
         <View style={{flexDirection:'row',}}>
             <ImageBackground
@@ -12,7 +13,6 @@ export default HorizontalRestuarantItem=({ Hotel, Rating, Mins, Type, Off, Upto,
                 <LinearGradient colors={['rgba(0,0,0, 0.1)', 'rgba(0, 0, 0, 1)']} start={{ x: 0, y: 0.60 }} end={{ x: 0, y: 1 }} style={styles.ExpGradient} >
 
                     <View style={styles.ExpOnelite}>
-                        {/* <Image style={styles.ExpOnelite1} source={{ uri: Onelite }}></Image> */}
 
                         <Image style={styles.ExpHeart} source={{ uri: Heart }}></Image>
                     </View>
@@ -28,8 +28,8 @@ export default HorizontalRestuarantItem=({ Hotel, Rating, Mins, Type, Off, Upto,
                 </LinearGradient>
             </ImageBackground >
 
-            <View style={{marginTop:10}}>
-                <Text style={{ color: '#282829', fontWeight: '700', fontSize: 16,  }}>
+            <View style={styles.View1}>
+                <Text style={styles.HotelStyle}>
                     {Hotel}
                 </Text>
 
@@ -46,7 +46,7 @@ export default HorizontalRestuarantItem=({ Hotel, Rating, Mins, Type, Off, Upto,
 
                 <Text style={styles.ExpType}>{Type}</Text>
                 <Text style={styles.ExpType}>{Location}</Text>
-                <Image style={{width:220,height:40,marginTop:10}}  source={{uri:FreeDelivery}}></Image>
+                <Image style={styles.FreeDelivery}  source={{uri:FreeDelivery}}></Image>
 
 
             </View>

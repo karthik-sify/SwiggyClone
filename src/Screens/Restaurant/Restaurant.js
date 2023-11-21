@@ -3,6 +3,7 @@ import { Image, View, Text, ScrollView,FlatList } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Carousel from 'react-native-snap-carousel'
 import styles from "./style";
+import Strings from "../../Utils/Strings";
 
 const back = require('../../Assests/back.png')
 const GreenStar = require('../../Assests/greenStar.png')
@@ -16,8 +17,8 @@ const search = require('../../Assests/search.png')
 const mic = require('../../Assests/mic.png')
 
 import { ResCarouselData } from "../../Services/DB";
-import ResCarouselItem from "../../Components/ResCarouselItem";
-import RestaurantDishItem from "../../Components/RestaurantDishitem";
+import ResCarouselItem from "../../Components/ResCaroItem/ResCarouselItem";
+import RestaurantDishItem from "../../Components/ResDishItem/RestaurantDishitem";
 import { RestaurantDishData } from "../../Services/DB";
 
 
@@ -32,7 +33,7 @@ export default Restaurant = () => {
             <SearchBar></SearchBar>
             <Filters></Filters>
             <View style={styles.line2}></View>
-            <Text style={styles.TrustedPick}>Recommended (19)</Text>
+            <Text style={styles.TrustedPick}>{Strings.Recommended}</Text>
             <ResDish></ResDish>
         </ScrollView>
     );
@@ -46,7 +47,7 @@ const TopPortion = () => {
             <View style={styles.infos}>
 
                 <View style={styles.TopPortion2}>
-                    <Text style={styles.Zaitoon}>Zaitoon</Text>
+                    <Text style={styles.Zaitoon}>{Strings.Zaitoon}</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Image style={styles.share} source={share}></Image>
                         <Image style={styles.heartGrey} source={heartGrey}></Image>
@@ -55,16 +56,16 @@ const TopPortion = () => {
 
                 <View style={styles.ExpResInfo}>
                     <Image style={styles.ExpGreenStar} source={GreenStar}></Image>
-                    <Text style={styles.ExpRating}>4.2(10K+ ratings)</Text>
+                    <Text style={styles.ExpRating}>{Strings.Rating}</Text>
                     <Image style={styles.infoImg} source={info}></Image>
                     <View>
                         <Text style={styles.ExpDot}>.</Text>
                         <Text style={styles.ExpSpace}> </Text>
                     </View>
-                    <Text style={styles.ExpRating}>₹500 for two</Text>
+                    <Text style={styles.ExpRating}>{Strings.ForTwo}</Text>
                 </View>
 
-                <Text style={styles.ExpType}>Briyani, Juices</Text>
+                <Text style={styles.ExpType}>{Strings.Briyani}</Text>
 
                 <View style={styles.line}></View>
 
@@ -72,13 +73,13 @@ const TopPortion = () => {
                     <Image style={styles.fromto} source={fromto}></Image>
                     <View>
                         <View style={styles.fromView}>
-                            <Text style={styles.fromtoText}>Outlet   </Text>
-                            <Text style={styles.ExpType}>Tambaram</Text>
+                            <Text style={styles.fromtoText}>{Strings.Outlet}</Text>
+                            <Text style={styles.ExpType}>{Strings.Tambaram}</Text>
                             <Image style={styles.Triangle} source={triangle}></Image>
                         </View>
                         <View style={styles.flexDirection}>
-                            <Text style={styles.fromtoText}>51 mins</Text>
-                            <Text style={styles.ExpType}>Delivery to Home</Text>
+                            <Text style={styles.fromtoText}>{Strings.Mins}</Text>
+                            <Text style={styles.ExpType}>{Strings.Delivery}</Text>
                             <Image style={styles.Triangle} source={triangle}></Image>
                         </View>
                     </View>
@@ -89,8 +90,8 @@ const TopPortion = () => {
                 <View style={styles.fromtoview}>
                     <Image style={styles.ExpGreenStar} source={info}></Image>
                     <View style={styles.flexDirection}>
-                        <Text style={styles.ExpRating}> Far (4.3 kms)</Text>
-                        <Text style={styles.ExpType}> | Additional delivery fee will apply</Text>
+                        <Text style={styles.ExpRating}>{Strings.Far}</Text>
+                        <Text style={styles.ExpType}>{Strings.Additional}</Text>
                     </View>
                 </View>
                 <View style={styles.line}></View>
@@ -98,7 +99,7 @@ const TopPortion = () => {
                     <View style={styles.flexDirection}>
                         <Image style={styles.onelite} source={onelite}></Image>
 
-                        <Text style={styles.freeDelivery}>Free Delivery</Text>
+                        <Text style={styles.freeDelivery}>{Strings.FreeDelivery}</Text>
 
                     </View>
                 </LinearGradient>
@@ -143,7 +144,7 @@ const Menu=()=>{
     return(
         <View style={styles.MenuView}>
             <Image source={menuleft} style={styles.MenuLeftImg} ></Image>
-            <Text style={styles.MenuText}>M E N U</Text>
+            <Text style={styles.MenuText}>{Strings.Menu}</Text>
             <Image source={menuright} style={styles.MenuRightImg} ></Image>
         </View>
     );
@@ -152,7 +153,7 @@ const Menu=()=>{
 const SearchBar = () => {
     return (
         <View style={styles.SearchBar}>
-            <Text style={styles.searchText}>                                Search for dishes</Text>
+            <Text style={styles.searchText}>{Strings.SearchFor}</Text>
             <View style={styles.searchImageView}>
                 <Image source={search} style={styles.searchImage}></Image>
                 <Text style={styles.searchText2}>|</Text>
@@ -165,10 +166,10 @@ const SearchBar = () => {
 const Filters = () => {
     return (
         <ScrollView horizontal={true} style={{marginTop:10}}>
-            <Text style={styles.Reorder2}>guiltfree</Text>
-            <Text style={styles.Reorder2}>Bestseller </Text>
-            <Text style={styles.Reorder2}>Veg</Text>
-            <Text style={styles.Reorder2}>Non Veg</Text>
+            <Text style={styles.Reorder2}>{Strings.guiltfree}</Text>
+            <Text style={styles.Reorder2}>{Strings.Bestseller}</Text>
+            <Text style={styles.Reorder2}>{Strings.Veg}</Text>
+            <Text style={styles.Reorder2}>{Strings.NonVeg}</Text>
         </ScrollView>
     )
 }
@@ -180,7 +181,7 @@ const ResDish = () => {
                 keyExtractor={(item, index) => index.toString()}
                 style={styles.ResDish}
                 renderItem={({ item }) => (
-                    <RestaurantDishItem styles={styles} nonveg={item.NonVeg} bestseller={item.Bestseller} head={item.Head} rate={item.Rate} star={item.Star} rating={item.Rating} count={item.Count} body={item.Body} food={item.Food} >  </RestaurantDishItem>
+                    <RestaurantDishItem nonveg={item.NonVeg} bestseller={item.Bestseller} head={item.Head} rate={item.Rate} star={item.Star} rating={item.Rating} count={item.Count} body={item.Body} food={item.Food} >  </RestaurantDishItem>
                 )}
             />
     )

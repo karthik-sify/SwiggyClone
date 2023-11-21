@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Text, View, ScrollView, Image, StatusBar, FlatList, Pressable } from "react-native";
 import Carousel from 'react-native-snap-carousel'
 
-
+//UTILS
+import Strings from "../../Utils/Strings";
 //COMPONENTS
-import OfferZoneComponent from "../../Components/OfferZoneComponent";
-import CarouselItem from "../../Components/CarouselItem";
-import RestuarantItem from "../../Components/RestuarantItem";
-import DishItem from "../../Components/Dishitem";
-import HorizontalResturantItem from "../../Components/HorizontalResturantItem";
+import OfferZoneComponent from "../../Components/OfferZoneComp/OfferZoneComponent";
+import CarouselItem from "../../Components/CarouselItem/CarouselItem";
+import RestuarantItem from "../../Components/ResItem/RestuarantItem";
+import DishItem from "../../Components/DishItem/Dishitem";
+import HorizontalResturantItem from "../../Components/HoriResItem/HorizontalResturantItem";
 
 //SERVICES
 import { CarouselObject, Restuarants, Dishes1, Dishes2, HoriRestuarants } from "../../Services/DB";
@@ -38,18 +39,18 @@ const Home = ({ navigation }) => {
             <SearchBar></SearchBar>
             <OfferZone></OfferZone>
             <CarouselImage setCurrentIndex={setCurrentIndex} index={currentIndex}></CarouselImage>
-            <Text style={styles.TrustedPick}>Your trusted picks</Text>
-            <Text style={styles.Reorder}>Reorder</Text>
+            <Text style={styles.TrustedPick}>{Strings.TrustedPick}</Text>
+            <Text style={styles.Reorder}>{Strings.ReOrder}</Text>
             <ReOrder navigation={navigation}></ReOrder>
-            <Text style={styles.TrustedPick}>Karthik, what's on your mind?</Text>
+            <Text style={styles.TrustedPick}>Karthik, {Strings.OnMind}</Text>
             <Dish navigation={navigation}></Dish>
             <TryNew></TryNew>
-            <Text style={styles.TrustedPick}>Quick picks for you</Text>
+            <Text style={styles.TrustedPick}>{Strings.QuickPick}</Text>
             <QuickPickHead></QuickPickHead>
             <ReOrder navigation={navigation}></ReOrder>
             <SeeMoreRestuarants></SeeMoreRestuarants>
             <Filters></Filters>
-            <Text style={styles.TrustedPick}>1113 restuarants to explore</Text>
+            <Text style={styles.TrustedPick}>{Strings.ResToExplore}</Text>
             <Explore navigation={navigation}></Explore>
 
 
@@ -65,9 +66,9 @@ const AddressBar = ({navigation}) => {
             <Pressable onPress={()=>navigation.navigate("Location")}>
             <View style={styles.HomeStyle}>
                 <Image source={homePic} style={styles.HomeImage} resizeMode="contain"></Image>
-                <Text style={styles.HomeText}>Home </Text>
+                <Text style={styles.HomeText}>{Strings.Home} </Text>
             </View>
-            <Text style={styles.AddressStyle}>39,1st cross Street,tidel park,chennai...</Text>
+            <Text style={styles.AddressStyle}>{Strings.Address}</Text>
             </Pressable>
         </View>
     );
@@ -86,7 +87,7 @@ const TopBar = ({navigation}) => {
 const SearchBar = () => {
     return (
         <View style={styles.SearchBar}>
-            <Text style={styles.searchText}>Search, Order, Enjoy, Repeat! </Text>
+            <Text style={styles.searchText}>{Strings.SearchText}</Text>
             <View style={styles.searchImageView}>
                 <Image source={search} style={styles.searchImage}></Image>
                 <Text style={styles.searchText2}>|</Text>
@@ -99,9 +100,9 @@ const SearchBar = () => {
 const OfferZone = () => {
     return (
         <View style={styles.OfferZone}>
-            <OfferZoneComponent OfferZoneText={"Offer Zone"} OfferZoneImage={offer1} styles={styles}></OfferZoneComponent>
-            <OfferZoneComponent OfferZoneText={"Gourmet"} OfferZoneImage={offer2} styles={styles}> </OfferZoneComponent>
-            <OfferZoneComponent OfferZoneText={"Guiltfree"} OfferZoneImage={offer3} styles={styles}></OfferZoneComponent>
+            <OfferZoneComponent OfferZoneText={"Offer Zone"} OfferZoneImage={offer1} ></OfferZoneComponent>
+            <OfferZoneComponent OfferZoneText={"Gourmet"} OfferZoneImage={offer2} > </OfferZoneComponent>
+            <OfferZoneComponent OfferZoneText={"Guiltfree"} OfferZoneImage={offer3}></OfferZoneComponent>
         </View>
     )
 }
@@ -112,10 +113,10 @@ const CarouselImage = ({ setCurrentIndex, index }) => {
             <Carousel
                 data={CarouselObject}
                 renderItem={({ item }) => (
-                    <CarouselItem startColor={item.StartColor} endColor={item.EndColor} foodImage={item.FoodImage} heading={item.Heading} body={item.Body} styles={styles}></CarouselItem>
+                    <CarouselItem startColor={item.StartColor} endColor={item.EndColor} foodImage={item.FoodImage} heading={item.Heading} body={item.Body}></CarouselItem>
                 )}
                 sliderWidth={410}
-                itemWidth={350}
+                itemWidth={360}
                 onSnapToItem={(index) => setCurrentIndex(index)}
                 autoplay
                 loop
@@ -139,7 +140,7 @@ const ReOrder = ({ navigation }) => {
                 style={{ marginLeft: 5, marginRight: 5 }}
                 renderItem={({ item }) => (
                     <RestuarantItem Hotel={item.Hotel} Rating={item.Rating} Mins={item.Mins} Type={item.Type} Off={item.Off} Upto={item.Upto
-                    } FoodImage={item.FoodImage} styles={styles} Heart={item.Heart} Onelite={item.Onelite} GreenStar={item.GreenStar}></RestuarantItem>
+                    } FoodImage={item.FoodImage} Heart={item.Heart} Onelite={item.Onelite} GreenStar={item.GreenStar}></RestuarantItem>
                 )}
             />
         </Pressable>
@@ -185,9 +186,9 @@ const TryNew = () => {
         <View style={styles.TryNewView}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View>
-                    <Text style={styles.TryNewText1}>Craving for something</Text>
-                    <Text style={styles.TryNewText2}>New?</Text>
-                    <Text style={styles.TryNewText3}>Try WhatToEat</Text>
+                    <Text style={styles.TryNewText1}>{Strings.TryNew1}</Text>
+                    <Text style={styles.TryNewText2}>{Strings.New}</Text>
+                    <Text style={styles.TryNewText3}>{Strings.TryWhatToEat}</Text>
                 </View>
                 <Image style={styles.TryNewImg} source={drooling}></Image>
             </View>
@@ -198,9 +199,9 @@ const TryNew = () => {
 const QuickPickHead = () => {
     return (
         <View style={{ flexDirection: 'row' }}>
-            <Text style={styles.Reorder}>Get it quickly</Text>
-            <Text style={styles.Reorder2}>pure veg</Text>
-            <Text style={styles.Reorder2}>popular Brands</Text>
+            <Text style={styles.Reorder}>{Strings.GetItQuickly}</Text>
+            <Text style={styles.Reorder2}>{Strings.PureVeg}</Text>
+            <Text style={styles.Reorder2}>{Strings.PopularBrands}</Text>
         </View>
     )
 }
@@ -208,7 +209,7 @@ const QuickPickHead = () => {
 const SeeMoreRestuarants = () => {
     return (
         <View style={styles.SeeMoreRestuarantsView}>
-            <Text style={styles.SeeMoreRestuarantsText}>See More Restuarants</Text>
+            <Text style={styles.SeeMoreRestuarantsText}>{Strings.SeeMoreRestuarants}</Text>
             <Text style={styles.SeeMoreRestuarantsText2}>{'  >'}</Text>
         </View>
     )
@@ -216,14 +217,14 @@ const SeeMoreRestuarants = () => {
 const Filters = () => {
     return (
         <ScrollView horizontal={true} style={{ marginTop: 10 }}>
-            <Text style={styles.Reorder2}>Filter</Text>
-            <Text style={styles.Reorder2}>Sort by </Text>
-            <Text style={styles.Reorder2}>Fast Delivery</Text>
-            <Text style={styles.Reorder2}>Cuisines</Text>
-            <Text style={styles.Reorder2}>New on Swiggy</Text>
-            <Text style={styles.Reorder2}>Pure Veg</Text>
-            <Text style={styles.Reorder2}>Rs.300-Rs.600</Text>
-            <Text style={styles.Reorder2}>Less than Rs.300</Text>
+            <Text style={styles.Reorder2}>{Strings.Filter}</Text>
+            <Text style={styles.Reorder2}>{Strings.SortBy}</Text>
+            <Text style={styles.Reorder2}>{Strings.FastDelivery}</Text>
+            <Text style={styles.Reorder2}>{Strings.Cuisines}</Text>
+            <Text style={styles.Reorder2}>{Strings.NewOnSwiggy}</Text>
+            <Text style={styles.Reorder2}>{Strings.PureVeg}</Text>
+            <Text style={styles.Reorder2}>{Strings.Rate}</Text>
+            <Text style={styles.Reorder2}>{Strings.Less}</Text>
         </ScrollView>
     )
 }
@@ -237,7 +238,7 @@ const Explore = ({ navigation }) => {
             renderItem={({ item }) => (
                 <Pressable onPress={() => navigation.navigate("Restaurant")}>
                     <HorizontalResturantItem Hotel={item.Hotel} Rating={item.Rating} Mins={item.Mins} Type={item.Type} Off={item.Off} Upto={item.Upto
-                    } FoodImage={item.FoodImage} styles={styles} Heart={item.Heart} GreenStar={item.GreenStar} Location={item.Location} FreeDelivery={item.FreeDelivery}></HorizontalResturantItem>
+                    } FoodImage={item.FoodImage} Heart={item.Heart} GreenStar={item.GreenStar} Location={item.Location} FreeDelivery={item.FreeDelivery}></HorizontalResturantItem>
                 </Pressable>
             )}
         />

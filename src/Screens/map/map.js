@@ -6,6 +6,7 @@ import getUserLocation from "../../Services/GetLocation";
 import requestLocationPermission from "../../Services/LocationPermission";
 
 import styles from './style';
+import Strings from '../../Utils/Strings';
 
 
 const MapComponent = () => {
@@ -36,7 +37,7 @@ const MapComponent = () => {
 };
   return (
     <View style={styles.container}>
-      {locationFlag && (<Text style={styles.Loading}>Retriving Location...</Text>)}
+      {locationFlag && (<Text style={styles.Loading}>{Strings.RetrivingLocation}</Text>)}
       <MapView
         style={styles.map}
         initialRegion={{

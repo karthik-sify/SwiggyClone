@@ -1,29 +1,30 @@
 import {StyleSheet} from 'react-native';
+import D from '../../Utils/Dimensions';
 
 export default styles=StyleSheet.create({
-    SearchBar:{borderRadius:15,margin:15,marginTop:20,marginBottom:20,flexDirection:'row',borderColor:'lightgrey',borderWidth:1,alignItems:'center',paddingEnd:10,paddingStart:10},
-    searchText:{color:'grey',paddingTop:12,paddingBottom:12},
-    searchImage:{width:18,height:18,marginRight:15},
+    SearchBar:{borderRadius:15,margin:D.Wfifteen,marginTop:D.Wtwenty,marginBottom:D.Wtwenty,flexDirection:'row',borderColor:'lightgrey',borderWidth:1,alignItems:'center',paddingEnd:D.Wten,paddingStart:D.Wten},
+    searchText:{color:'grey',paddingTop:D.Wtwelve,paddingBottom:D.Wtwelve},
+    searchImage:{width:D.Weighteen,height:D.Heighteen,marginRight:D.Wfifteen},
 
-    line:{height:1,backgroundColor:'#ededed',margin:20},
+    line:{height:1,backgroundColor:'#ededed',margin:D.Wtwenty},
 
-    Dot:{ color: 'grey', fontSize: 15, fontWeight: '900', marginLeft: 5,},
-    Space:{ fontSize: 4},
+    Dot:{ color: 'grey', fontSize: D.Wfifteen, fontWeight: '900', marginLeft: D.Wfive,},
+    Space:{ fontSize: D.Wfour},
 
-    SavedAdd:{ color: 'grey', fontSize: 11, marginLeft: 15, marginBottom: 15 },
-    ViewMore:{ fontWeight: '500', fontSize: 14, color: '#f56011', marginLeft: 15, marginTop: 10 },
-    RecentSearch:{ color: 'grey', fontSize: 11, marginLeft: 15, marginBottom: 15 },
+    SavedAdd:{ color: 'grey', fontSize: D.Weleven, marginLeft: D.Wfifteen, marginBottom: D.Wfifteen },
+    ViewMore:{ fontWeight: '500', fontSize: D.Wfourteen, color: '#f56011', marginLeft: D.Wfifteen, marginTop: D.Wten },
+    RecentSearch:{ color: 'grey', fontSize: D.Weleven, marginLeft: D.Wfifteen, marginBottom: D.Wfifteen },
 
-    TopBarView:{ flexDirection: 'row', marginTop: 15 },
-    TopBarImg:{ width: 50, height: 20, resizeMode: 'contain' },
-    TopBarTxt:{ color: 'black', fontWeight: '700', fontSize: 14 },
+    TopBarView:{ flexDirection: 'row', marginTop: D.Wfifteen },
+    TopBarImg:{ width: D.Wfifty, height: D.Htwenty, resizeMode: 'contain' },
+    TopBarTxt:{ color: 'black', fontWeight: '700', fontSize: D.Wfourteen },
 
-    CurrentLocationView:{ flexDirection: 'row', alignItems: 'center', marginLeft: 15 },
-    CurrentLocationImg:{ width: 18, height: 18, marginRight: 10 },
-    CurrentLocationText:{ fontWeight: '700', fontSize: 14, color: '#f56011' },
+    CurrentLocationView:{ flexDirection: 'row', alignItems: 'center', marginLeft: D.Wfifteen },
+    CurrentLocationImg:{ width:D.Weighteen, height: D.Heighteen, marginRight: D.Wten },
+    CurrentLocationText:{ fontWeight: '700', fontSize: D.Wfourteen, color: '#f56011' },
 
     RecentSearchView:{ flexDirection: 'row', alignItems: "center" },
-    RecentSearchImg:{ width: 15, height: 15, resizeMode: 'contain', marginRight: 5 },
+    RecentSearchImg:{ width: D.Wfifteen, height: D.Hfifteen, resizeMode: 'contain', marginRight: D.Wfive },
     RecentSearchText:{ color: '#4a4a4a', fontWeight: '700' },
-    RecentSearchText2:{ color: 'grey', fontSize: 13, },
+    RecentSearchText2:{ color: 'grey', fontSize: D.Wthirteen, },
 })

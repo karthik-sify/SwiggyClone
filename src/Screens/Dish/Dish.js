@@ -5,6 +5,7 @@ const food1 = require('../../Assests/food1.png')
 import styles from "./style"
 import { Explore } from "../Home/Home";
 import { Filters } from "../Home/Home";
+import Strings from "../../Utils/Strings";
 
 export default Dish = ({navigation}) => {
 
@@ -15,9 +16,9 @@ export default Dish = ({navigation}) => {
                 <Image source={food1} style={styles.TopImage}></Image>
             </View>
 
-            <Text style={styles.Headings}>PIZZA</Text>
-            <Text style={styles.Subtext}>Cheesilious pizzas to make every day extraordinary.</Text>
-            <Text style={styles.Subtext2}>.......................................................................</Text>
+            <Text style={styles.Headings}>{Strings.Pizza}</Text>
+            <Text style={styles.Subtext}>{Strings.PizzaSubText}</Text>
+            <Text style={styles.Subtext2}>{Strings.PizzaSubText2}</Text>
             <Filters></Filters>
             <Explore navigation={navigation}></Explore>
         </ScrollView>
